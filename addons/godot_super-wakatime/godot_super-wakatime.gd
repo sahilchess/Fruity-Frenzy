@@ -46,7 +46,7 @@ var scene_mode: bool = false
 
 var key_get_tries: int = 0
 var counter_instance: Node
-var current_time: String = "2 hrs, 0mins"
+var current_time: String = "0 hrs, 0mins"
 
 
 # #------------------------------- DIRECT PLUGIN FUNCTIONS -------------------------------
