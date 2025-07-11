@@ -364,7 +364,6 @@ func convert_time(complex_time: String):
 		hours += 1
 
 	return str(hours) + " hrs, " + str(minutes) + " mins"
-
 #------------------------------- FILE FUNCTIONS -------------------------------
 func open_config() -> void:
 	"""Open wakatime config file"""
