@@ -341,7 +341,7 @@ tile_set = SubResource("TileSet_lbhrr")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_uwrxv")]
 z_index = 2
-position = Vector2(3249, -405)
+position = Vector2(3247, -400)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(0, -15)
