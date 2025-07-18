@@ -1,8 +1,25 @@
-[gd_scene load_steps=10 format=3 uid="uid://b41487pho7g45"]
+[gd_scene load_steps=23 format=3 uid="uid://b41487pho7g45"]
 
 [ext_resource type="Script" uid="uid://n7y6iqa4tpub" path="res://scripts/green_slime.gd" id="1_0pvn7"]
 [ext_resource type="Texture2D" uid="uid://dnjmg4ux3cnb8" path="res://assets/sprites/slime_green.png" id="1_tuic5"]
 [ext_resource type="PackedScene" uid="uid://dyes5okcpttcy" path="res://scenes/killzone.tscn" id="2_0pvn7"]
+[ext_resource type="AudioStream" uid="uid://c78ho47u00x8n" path="res://assets/sounds/explosion.wav" id="4_4q1e0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pvn7"]
+atlas = ExtResource("1_tuic5")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4q1p6"]
+atlas = ExtResource("1_tuic5")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl2pm"]
+atlas = ExtResource("1_tuic5")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q800"]
+atlas = ExtResource("1_tuic5")
+region = Rect2(72, 48, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4q1e0"]
 atlas = ExtResource("1_tuic5")
@@ -20,8 +37,41 @@ region = Rect2(48, 24, 24, 24)
 atlas = ExtResource("1_tuic5")
 region = Rect2(72, 24, 24, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_35rgu"]
+atlas = ExtResource("1_tuic5")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5vyh"]
+atlas = ExtResource("1_tuic5")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_452or"]
+atlas = ExtResource("1_tuic5")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukqwe"]
+atlas = ExtResource("1_tuic5")
+region = Rect2(72, 0, 24, 24)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_4q1p6"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pvn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4q1p6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl2pm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5q800")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4q1e0")
@@ -36,12 +86,140 @@ animations = [{
 "texture": SubResource("AtlasTexture_io87k")
 }],
 "loop": true,
-"name": &"default",
-"speed": 15.0
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35rgu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5vyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_452or")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukqwe")
+}],
+"loop": true,
+"name": &"wake_up",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vl2pm"]
 size = Vector2(12, 15)
+
+[sub_resource type="Animation" id="Animation_boo2g"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("head:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Killzone/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("explode:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_kq38r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("head:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Killzone/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("explode:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_io87k"]
+_data = {
+&"RESET": SubResource("Animation_kq38r"),
+&"death": SubResource("Animation_boo2g")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4q1p6"]
+size = Vector2(2, 1)
 
 [node name="green_slime" type="Node2D"]
 script = ExtResource("1_0pvn7")
@@ -49,8 +227,8 @@ script = ExtResource("1_0pvn7")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_4q1p6")
-autoplay = "default"
-frame_progress = 0.40736
+animation = &"idle"
+autoplay = "wake_up"
 
 [node name="Killzone" parent="." instance=ExtResource("2_0pvn7")]
 position = Vector2(0, -12)
@@ -74,3 +252,20 @@ anchor_right = 1.072
 offset_top = 270.8
 offset_right = -1194.94
 offset_bottom = 23.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_io87k")
+}
+
+[node name="head" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="head"]
+position = Vector2(0, -15.5)
+shape = SubResource("RectangleShape2D_4q1p6")
+
+[node name="explode" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4q1e0")
+bus = &"SFX"
+
+[connection signal="body_entered" from="head" to="." method="_on_head_body_entered"]
