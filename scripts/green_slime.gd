@@ -6,9 +6,6 @@ var direction = 1
 @onready var ray_cast_left: RayCast2D = $RayCast_Left
 @onready var ray_cast_right: RayCast2D = $RayCast_right
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var head: Area2D = $head
-
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,8 +21,3 @@ func _process(delta: float) -> void:
 		pass
 	position.x += SPEED * delta * direction
 	
-
-
-func _on_head_body_entered(body: Node2D) -> void:
-	animated_sprite.play("death")
-	animation_player.play("death")

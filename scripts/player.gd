@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -300.0
 
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var jump: AudioStreamPlayer = $jump
 
 
 
@@ -36,7 +37,10 @@ func _physics_process(delta: float) -> void:
 			animated_sprite.play("run")
 	else:
 		animated_sprite.play("jump")
-	
+		jump.play()
+		queue_free()
+		
+		
 		
 	if direction	:
 		velocity.x = direction * SPEED
