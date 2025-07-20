@@ -490,11 +490,11 @@ Spacebar to roll"
 offset_left = 231.0
 offset_top = -64.0
 offset_right = 400.0
-offset_bottom = -34.0
+offset_bottom = -45.0
 theme_override_fonts/font = ExtResource("9_0tnpc")
 theme_override_font_sizes/font_size = 8
-text = "These guys are not nice... 
-But you might be able to kill them...."
+text = "These guys are not nice...
+"
 autowrap_mode = 2
 
 [node name="Label3" type="Label" parent="Labels"]
