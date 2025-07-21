@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=4 uid="uid://b0q7418px1mlb"]
+[gd_scene load_steps=21 format=4 uid="uid://b0q7418px1mlb"]
 
 [ext_resource type="Script" uid="uid://daaiyoxn2jc3b" path="res://scripts/game_manager.gd" id="1_3sk1a"]
+[ext_resource type="Script" uid="uid://bmdy02it5jb6q" path="res://levels/level_1.gd" id="1_08mmt"]
 [ext_resource type="Texture2D" uid="uid://jasqxcrfkh21" path="res://assets/sprites/world_tileset.png" id="1_l53as"]
 [ext_resource type="PackedScene" uid="uid://bgmim7m54t7iu" path="res://scenes/player.tscn" id="2_3sk1a"]
 [ext_resource type="PackedScene" uid="uid://dyes5okcpttcy" path="res://scenes/killzone.tscn" id="3_08mmt"]
@@ -8,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://brjfwlqyy2k0o" path="res://scenes/platform_grass.tscn" id="5_aerfg"]
 [ext_resource type="PackedScene" uid="uid://cugoq60n2g0xa" path="res://scenes/platform_sand.tscn" id="6_nmsli"]
 [ext_resource type="FontFile" uid="uid://tmf1vi52lfs3" path="res://assets/fonts/PixelOperator8.ttf" id="7_betor"]
-[ext_resource type="PackedScene" uid="uid://ytc8848c3o2r" path="res://scenes/next_level.tscn" id="8_vjtdm"]
+[ext_resource type="PackedScene" uid="uid://kgtfnjuu4ifo" path="res://scenes/next_level.tscn" id="8_vjtdm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p57ef"]
 texture = ExtResource("1_l53as")
@@ -268,6 +269,33 @@ sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u5sy4"]
 
+[sub_resource type="Animation" id="Animation_u5sy4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(437, -87)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Platform_Sand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-17, -221)]
+}
+
 [sub_resource type="Animation" id="Animation_p57ef"]
 resource_name = "move"
 length = 4.0
@@ -297,33 +325,6 @@ tracks/1/keys = {
 "values": [Vector2(-18, -223), Vector2(-39.3181, -19.6777), Vector2(-17, -221)]
 }
 
-[sub_resource type="Animation" id="Animation_u5sy4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(437, -87)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Platform_Sand:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-17, -221)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gee14"]
 _data = {
 &"RESET": SubResource("Animation_u5sy4"),
@@ -331,6 +332,7 @@ _data = {
 }
 
 [node name="Level 1" type="Node2D"]
+script = ExtResource("1_08mmt")
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -342,6 +344,7 @@ tile_set = SubResource("TileSet_u5sy4")
 
 [node name="next_level" parent="." instance=ExtResource("8_vjtdm")]
 position = Vector2(634, -151)
+script = null
 
 [node name="Tree_and_Bushes" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAP7/AAAAAAMAAAAAAP//AAAAAAUAAAD8////AAABAAUAAAAKAP7/AAABAAYAAAA=")
