@@ -19,6 +19,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jump.play()
 
 	# Get the input direction -1,0,1
 	var direction := Input.get_axis("move_left", "move_right")
@@ -37,8 +38,6 @@ func _physics_process(delta: float) -> void:
 			animated_sprite.play("run")
 	else:
 		animated_sprite.play("jump")
-		jump.play()
-		queue_free()
 		
 		
 		
