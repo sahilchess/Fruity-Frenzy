@@ -1,7 +1,6 @@
 [gd_scene load_steps=21 format=4 uid="uid://b0q7418px1mlb"]
 
 [ext_resource type="Script" uid="uid://daaiyoxn2jc3b" path="res://scripts/game_manager.gd" id="1_3sk1a"]
-[ext_resource type="Script" uid="uid://bmdy02it5jb6q" path="res://levels/level_1.gd" id="1_08mmt"]
 [ext_resource type="Texture2D" uid="uid://jasqxcrfkh21" path="res://assets/sprites/world_tileset.png" id="1_l53as"]
 [ext_resource type="PackedScene" uid="uid://bgmim7m54t7iu" path="res://scenes/player.tscn" id="2_3sk1a"]
 [ext_resource type="PackedScene" uid="uid://dyes5okcpttcy" path="res://scenes/killzone.tscn" id="3_08mmt"]
@@ -10,6 +9,21 @@
 [ext_resource type="PackedScene" uid="uid://cugoq60n2g0xa" path="res://scenes/platform_sand.tscn" id="6_nmsli"]
 [ext_resource type="FontFile" uid="uid://tmf1vi52lfs3" path="res://assets/fonts/PixelOperator8.ttf" id="7_betor"]
 [ext_resource type="PackedScene" uid="uid://kgtfnjuu4ifo" path="res://scenes/next_level.tscn" id="8_vjtdm"]
+
+[sub_resource type="GDScript" id="GDScript_3sk1a"]
+script/source = "extends Node2D
+@onready var next_level: Area2D = $next_level
+
+
+const FILE_BEGIN = \"res://levels/level_\"
+
+func _on_body_entered(body: Node2D) -> void:
+	print(\"ooooooddddddddddodododododo\")
+	var current_scene_file = get_tree().current_scene.scene_file_path
+	var next_level_number = current_scene_file.to_int() + 1
+		
+	var next_level_path = FILE_BEGIN + str(next_level_number) + \".tscn\"
+"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p57ef"]
 texture = ExtResource("1_l53as")
@@ -332,7 +346,7 @@ _data = {
 }
 
 [node name="Level 1" type="Node2D"]
-script = ExtResource("1_08mmt")
+script = SubResource("GDScript_3sk1a")
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
