@@ -180,7 +180,7 @@ z_index = 7
 collision_layer = 2
 script = ExtResource("1_g2els")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="MovementSprite" type="AnimatedSprite2D" parent="."]
 z_index = 5
 position = Vector2(1, -12)
 sprite_frames = SubResource("SpriteFrames_tuyoq")

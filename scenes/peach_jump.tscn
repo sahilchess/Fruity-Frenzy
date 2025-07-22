@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://bpe77i5ldpxda"]
+
+[ext_resource type="Script" uid="uid://2lms782y4o31" path="res://scripts/peach_jump.gd" id="1_k6his"]
+[ext_resource type="AudioStream" uid="uid://dlg3ymtlkwwqr" path="res://assets/sounds/power_up.wav" id="2_e0vt6"]
+[ext_resource type="Texture2D" uid="uid://b405dv8qcs61d" path="res://assets/sprites/fruit.png" id="3_ifhdm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a5fh"]
+atlas = ExtResource("3_ifhdm")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1nsq"]
+atlas = ExtResource("3_ifhdm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hf0m"]
+atlas = ExtResource("3_ifhdm")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0v1mq"]
+atlas = ExtResource("3_ifhdm")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y6a5d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a5fh")
+}],
+"loop": true,
+"name": &"gold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1nsq")
+}],
+"loop": true,
+"name": &"grass",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hf0m")
+}],
+"loop": true,
+"name": &"ice",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0v1mq")
+}],
+"loop": true,
+"name": &"sand",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hmtx0"]
+radius = 5.0
+
+[node name="Peach_Jump" type="Node2D"]
+script = ExtResource("1_k6his")
+
+[node name="powerup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_e0vt6")
+bus = &"SFX"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_y6a5d")
+animation = &"sand"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_hmtx0")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

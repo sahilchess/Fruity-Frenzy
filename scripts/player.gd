@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
 
-const SPEED = 130.0
-const JUMP_VELOCITY = -300.0
+var SPEED = 130.0
+var JUMP_VELOCITY = -150.0
 
 
-
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var movement_sprite: AnimatedSprite2D = $MovementSprite
 @onready var jump: AudioStreamPlayer = $jump
+@onready var effects: AnimatedSprite2D = $Effects
 
 
 
@@ -26,18 +26,18 @@ func _physics_process(delta: float) -> void:
 	
 	# turn the character
 	if direction > 0:
-		animated_sprite.flip_h = false
+		movement_sprite.flip_h = false
 	elif direction < 0:
-		animated_sprite.flip_h = true
+		movement_sprite.flip_h = true
 
 	if is_on_floor():
 		# play the run animation	
 		if direction == 0:
-			animated_sprite.play("idle")
+			movement_sprite.play("idle")
 		else:
-			animated_sprite.play("run")
+			movement_sprite.play("run")
 	else:
-		animated_sprite.play("jump")
+		movement_sprite.play("jump")
 		
 		
 		
