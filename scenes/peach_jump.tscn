@@ -76,5 +76,5 @@ animation = &"sand"
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_hmtx0")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

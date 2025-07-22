@@ -180,13 +180,12 @@ z_index = 7
 collision_layer = 2
 script = ExtResource("1_g2els")
 
-[node name="MovementSprite" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 5
 position = Vector2(1, -12)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
-animation = &"jump"
+animation = &"run"
 autoplay = "idle"
-frame_progress = 0.528322
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
@@ -196,6 +195,6 @@ shape = SubResource("CircleShape2D_g2els")
 position = Vector2(1, -10.5)
 shape = SubResource("RectangleShape2D_qhqgy")
 
-[node name="jump" type="AudioStreamPlayer" parent="."]
+[node name="jump_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_qhqgy")
 bus = &"SFX"
