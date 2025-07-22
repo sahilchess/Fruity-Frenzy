@@ -279,6 +279,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_26h77")
 theme_override_font_sizes/font_size = 16
 text = "You collected X coins!"
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="TileMapLayer" parent="."]
@@ -298,7 +299,7 @@ tile_set = SubResource("TileSet_lbhrr")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_26h77")]
 z_index = 2
-position = Vector2(3270, -383)
+position = Vector2(3273, -371)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(0, -15)
