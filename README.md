@@ -10,7 +10,7 @@
 
 - 🍓 Fruit-themed levels with collectible coins and hidden fruit bonuses  
 - 🟣🟢 Purple and green slimes with unique movement patterns and behaviors  
-- 💥 Power-ups like Fruit Shield and Coin Magnet to boost your run
+- 💥 Power-ups like jump boost and speed boost
 
 ---
 
