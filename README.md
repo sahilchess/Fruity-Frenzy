@@ -10,16 +10,15 @@
 
 - 🍓 Fruit-themed levels with collectible coins and hidden fruit bonuses  
 - 🟣🟢 Purple and green slimes with unique movement patterns and behaviors  
-- 💥 Power-ups like Fruit Shield and Coin Magnet to boost your run
+- 💥 Power-ups like jump boost and speed boost
 
 ---
 
 ## 🧩 Gameplay
 
 Players run, jump, and bounce through colorful orchard zones, collecting coins and fruit while avoiding slimes.  
-Purple slimes leap unpredictably, while green slimes patrol platforms.  
+Purple and green slimes patrol platforms.  
 Each level introduces new fruit types and terrain challenges.  
-Collect enough fruit to unlock bonus stages and earn golden trophies.
 
 ---
 
