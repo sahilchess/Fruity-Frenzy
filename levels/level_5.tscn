@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://bafkyfqvgdjsl"]
+[gd_scene load_steps=14 format=4 uid="uid://bafkyfqvgdjsl"]
 
 [ext_resource type="Script" uid="uid://6mqiya0mbvae" path="res://scripts/score_counter.gd" id="1_r02ll"]
 [ext_resource type="FontFile" uid="uid://cs0pw7bw4r4qf" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_26h77"]
 [ext_resource type="Texture2D" uid="uid://jasqxcrfkh21" path="res://assets/sprites/world_tileset.png" id="3_1y5xd"]
+[ext_resource type="Script" uid="uid://v3jgrk5qntch" path="res://scripts/score_label.gd" id="3_g5mgy"]
 [ext_resource type="PackedScene" uid="uid://bgmim7m54t7iu" path="res://scenes/player.tscn" id="4_26h77"]
 [ext_resource type="PackedScene" uid="uid://dyes5okcpttcy" path="res://scenes/killzone.tscn" id="4_g5mgy"]
 
@@ -280,6 +281,7 @@ theme_override_fonts/font = ExtResource("2_26h77")
 theme_override_font_sizes/font_size = 16
 text = "You collected X coins!"
 horizontal_alignment = 1
+script = ExtResource("3_g5mgy")
 metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="TileMapLayer" parent="."]
