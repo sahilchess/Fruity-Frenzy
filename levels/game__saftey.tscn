@@ -1,6 +1,5 @@
-[gd_scene load_steps=21 format=4 uid="uid://jyush3v3q4o6"]
+[gd_scene load_steps=20 format=4 uid="uid://jyush3v3q4o6"]
 
-[ext_resource type="Script" uid="uid://daaiyoxn2jc3b" path="res://scripts/game_manager.gd" id="1_k4m8x"]
 [ext_resource type="FontFile" uid="uid://cs0pw7bw4r4qf" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_k1647"]
 [ext_resource type="Texture2D" uid="uid://jasqxcrfkh21" path="res://assets/sprites/world_tileset.png" id="3_3wb6p"]
 [ext_resource type="PackedScene" uid="uid://bgmim7m54t7iu" path="res://scenes/player.tscn" id="4_cd3q8"]
@@ -311,7 +310,6 @@ _data = {
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("1_k4m8x")
 
 [node name="ScoreLabel" type="Label" parent="GameManager"]
 offset_left = 3078.0

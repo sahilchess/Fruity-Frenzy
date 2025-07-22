@@ -22,6 +22,7 @@ buses/default_bus_layout="res://assets/default_bus_layout.tres"
 [autoload]
 
 Music="*res://scenes/music.tscn"
+ScoreCounter="*res://scripts/score_counter.gd"
 
 [editor_plugins]
 
