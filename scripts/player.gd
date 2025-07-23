@@ -1,12 +1,10 @@
 extends CharacterBody2D
 
 
-var SPEED = 130.0
-var JUMP_VELOCITY = -300.0
+var SPEED = PlayerStats.speed
+var JUMP_VELOCITY = PlayerStats.jump_velocity
 
-@onready var animated_sprite_2d: AnimatedSprite2D = get_node("SpriteLayer/MovementSprite")
-
-# @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var effects: AnimatedSprite2D = $Effects
 @onready var jump_sound: AudioStreamPlayer = $jump_sound
 
@@ -38,10 +36,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			animated_sprite_2d.play("run")
 	else:
-		if animated_sprite_2d == null:
-			print("waugh")
-		else:
-			animated_sprite_2d.play("jump")
+		animated_sprite_2d.play("jump")
 		
 		
 		
