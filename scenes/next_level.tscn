@@ -1,26 +1,62 @@
-[gd_scene load_steps=7 format=3 uid="uid://kgtfnjuu4ifo"]
+[gd_scene load_steps=10 format=3 uid="uid://kgtfnjuu4ifo"]
 
 [ext_resource type="Script" uid="uid://kuvawudkntq" path="res://scripts/next_level.gd" id="1_sd4vo"]
-[ext_resource type="Texture2D" uid="uid://jasqxcrfkh21" path="res://assets/sprites/world_tileset.png" id="2_e8fy2"]
+[ext_resource type="Texture2D" uid="uid://b405dv8qcs61d" path="res://assets/sprites/fruit.png" id="2_e8fy2"]
 [ext_resource type="AudioStream" uid="uid://bke387uqloq1k" path="res://assets/sounds/level_up.wav" id="3_e8fy2"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wlp6t"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6his"]
 atlas = ExtResource("2_e8fy2")
-region = Rect2(64, 128, 16, 16)
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0vt6"]
+atlas = ExtResource("2_e8fy2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifhdm"]
+atlas = ExtResource("2_e8fy2")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a5fh"]
+atlas = ExtResource("2_e8fy2")
+region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_il65w"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wlp6t")
+"texture": SubResource("AtlasTexture_k6his")
 }],
 "loop": true,
-"name": &"default",
+"name": &"gold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0vt6")
+}],
+"loop": true,
+"name": &"grass",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifhdm")
+}],
+"loop": true,
+"name": &"ice",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a5fh")
+}],
+"loop": true,
+"name": &"sand",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jymac"]
-size = Vector2(16, 15)
+size = Vector2(13, 13.5)
 
 [node name="next_level" type="Area2D"]
 collision_mask = 2
