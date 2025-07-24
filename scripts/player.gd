@@ -4,6 +4,10 @@ extends CharacterBody2D
 var SPEED = PlayerStats.speed
 var JUMP_VELOCITY = PlayerStats.jump_velocity
 
+
+const POWERUP = preload("res://scenes/peach_jump.tscn")
+
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var effects: AnimatedSprite2D = $Effects
 @onready var jump_sound: AudioStreamPlayer = $jump_sound

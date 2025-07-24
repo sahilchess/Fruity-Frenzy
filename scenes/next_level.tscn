@@ -1,62 +1,86 @@
 [gd_scene load_steps=10 format=3 uid="uid://kgtfnjuu4ifo"]
 
 [ext_resource type="Script" uid="uid://kuvawudkntq" path="res://scripts/next_level.gd" id="1_sd4vo"]
-[ext_resource type="Texture2D" uid="uid://b405dv8qcs61d" path="res://assets/sprites/fruit.png" id="2_e8fy2"]
+[ext_resource type="Texture2D" uid="uid://jasqxcrfkh21" path="res://assets/sprites/world_tileset.png" id="2_e8fy2"]
 [ext_resource type="AudioStream" uid="uid://bke387uqloq1k" path="res://assets/sounds/level_up.wav" id="3_e8fy2"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k6his"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlp6t"]
 atlas = ExtResource("2_e8fy2")
-region = Rect2(0, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e0vt6"]
-atlas = ExtResource("2_e8fy2")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ifhdm"]
-atlas = ExtResource("2_e8fy2")
-region = Rect2(0, 48, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3a5fh"]
-atlas = ExtResource("2_e8fy2")
-region = Rect2(0, 16, 16, 16)
+region = Rect2(64, 128, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_il65w"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k6his")
+"texture": SubResource("AtlasTexture_wlp6t")
 }],
 "loop": true,
-"name": &"gold",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e0vt6")
-}],
-"loop": true,
-"name": &"grass",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ifhdm")
-}],
-"loop": true,
-"name": &"ice",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3a5fh")
-}],
-"loop": true,
-"name": &"sand",
+"name": &"new_animation",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jymac"]
 size = Vector2(13, 13.5)
+
+[sub_resource type="Animation" id="Animation_e8fy2"]
+resource_name = "cut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:script")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_sd4vo")]
+}
+
+[sub_resource type="Animation" id="Animation_wlp6t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:script")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_sd4vo")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_il65w"]
+_data = {
+&"RESET": SubResource("Animation_wlp6t"),
+&"cut": SubResource("Animation_e8fy2")
+}
 
 [node name="next_level" type="Area2D"]
 collision_mask = 2
@@ -64,8 +88,8 @@ script = ExtResource("1_sd4vo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_il65w")
+animation = &"new_animation"
 autoplay = "default"
-frame_progress = 0.648434
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
@@ -74,5 +98,11 @@ shape = SubResource("RectangleShape2D_jymac")
 [node name="level_up" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_e8fy2")
 bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../level_up")
+libraries = {
+&"": SubResource("AnimationLibrary_il65w")
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
