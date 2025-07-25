@@ -349,7 +349,7 @@ tile_set = SubResource("TileSet_lbhrr")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_3sk1a")]
 z_index = 2
-position = Vector2(571, -133)
+position = Vector2(-22, -2)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(0, -15)
@@ -428,5 +428,5 @@ metadata/_edit_use_anchors_ = true
 [node name="next_level" parent="." instance=ExtResource("8_vjtdm")]
 position = Vector2(633, -152)
 
-[node name="Peach_Jump" parent="." instance=ExtResource("9_3sk1a")]
-position = Vector2(598, -94)
+[node name="peach_jump" parent="." instance=ExtResource("9_3sk1a")]
+position = Vector2(42, -27)

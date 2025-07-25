@@ -1,17 +1,25 @@
 extends CharacterBody2D
 
 
-var SPEED = PlayerStats.speed
-var JUMP_VELOCITY = PlayerStats.jump_velocity
+var SPEED = 130
+var JUMP_VELOCITY = -300
 
 
-const POWERUP = preload("res://scenes/peach_jump.tscn")
 
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var effects: AnimatedSprite2D = $Effects
 @onready var jump_sound: AudioStreamPlayer = $jump_sound
 
+@onready var jump_timer: Timer = $jump_timer
+@onready var speed_timer: Timer = $speed_timer
+@onready var slow_timer: Timer = $slow_timer
+
+
+
+
+
+func _ready():
+	connect("jump_boost", Callable(self, "_jump_boost"))
 
 
 func _physics_process(delta: float) -> void:
@@ -50,3 +58,27 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+	
+	
+func _jump_boost():
+	JUMP_VELOCITY = -500
+	print("Starting delay...")
+	await get_tree().create_timer(5.0).timeout # Wait for 2 seconds
+	print("Delay finished!")
+	JUMP_VELOCITY = -300
+	
+func _speed_boost():
+	SPEED = 200
+	print("Starting delay...")
+	await get_tree().create_timer(5.0).timeout # Wait for 2 seconds
+	print("Delay finished!")
+	SPEED = 130
+	
+func _slow_boost():
+	SPEED = 50
+	print("Starting delay...")
+	await get_tree().create_timer(5.0).timeout # Wait for 2 seconds
+	print("Delay finished!")
+	SPEED = 130
+	
