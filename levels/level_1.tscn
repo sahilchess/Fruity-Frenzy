@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://b0q7418px1mlb"]
+[gd_scene load_steps=22 format=4 uid="uid://b0q7418px1mlb"]
 
 [ext_resource type="Texture2D" uid="uid://jasqxcrfkh21" path="res://assets/sprites/world_tileset.png" id="1_l53as"]
 [ext_resource type="PackedScene" uid="uid://bgmim7m54t7iu" path="res://scenes/player.tscn" id="2_3sk1a"]
@@ -9,6 +9,8 @@
 [ext_resource type="FontFile" uid="uid://tmf1vi52lfs3" path="res://assets/fonts/PixelOperator8.ttf" id="7_betor"]
 [ext_resource type="PackedScene" uid="uid://kgtfnjuu4ifo" path="res://scenes/next_level.tscn" id="8_vjtdm"]
 [ext_resource type="PackedScene" uid="uid://dvrcmaotyh06" path="res://scenes/peach_jump.tscn" id="9_3sk1a"]
+[ext_resource type="PackedScene" uid="uid://ddl7v4mrtvfrw" path="res://scenes/pear_speed.tscn" id="10_08mmt"]
+[ext_resource type="PackedScene" uid="uid://d4llw0iw0lf0u" path="res://scenes/grape_slow.tscn" id="11_5ot28"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p57ef"]
 texture = ExtResource("1_l53as")
@@ -425,8 +427,16 @@ theme_override_font_sizes/font_size = 8
 text = "How do we get these coins?"
 metadata/_edit_use_anchors_ = true
 
+[node name="Powerups" type="Node" parent="."]
+
+[node name="peach_jump" parent="Powerups" instance=ExtResource("9_3sk1a")]
+position = Vector2(214, -120)
+
+[node name="pear_speed" parent="Powerups" instance=ExtResource("10_08mmt")]
+position = Vector2(39, -28)
+
+[node name="grape_slow" parent="Powerups" instance=ExtResource("11_5ot28")]
+position = Vector2(570, -138)
+
 [node name="next_level" parent="." instance=ExtResource("8_vjtdm")]
 position = Vector2(633, -152)
-
-[node name="peach_jump" parent="." instance=ExtResource("9_3sk1a")]
-position = Vector2(42, -27)

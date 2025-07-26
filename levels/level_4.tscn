@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=4 uid="uid://djkte76txy7v2"]
+[gd_scene load_steps=17 format=4 uid="uid://djkte76txy7v2"]
 
 [ext_resource type="Texture2D" uid="uid://jasqxcrfkh21" path="res://assets/sprites/world_tileset.png" id="3_8hlpj"]
 [ext_resource type="PackedScene" uid="uid://bgmim7m54t7iu" path="res://scenes/player.tscn" id="4_qhnv2"]
 [ext_resource type="PackedScene" uid="uid://dyes5okcpttcy" path="res://scenes/killzone.tscn" id="5_vru0x"]
 [ext_resource type="PackedScene" uid="uid://cr3xyxahg5oh4" path="res://scenes/coin.tscn" id="6_5oqfd"]
+[ext_resource type="PackedScene" uid="uid://d4llw0iw0lf0u" path="res://scenes/grape_slow.tscn" id="6_sc6c1"]
 [ext_resource type="PackedScene" uid="uid://kgtfnjuu4ifo" path="res://scenes/next_level.tscn" id="7_0fd8o"]
+[ext_resource type="PackedScene" uid="uid://dvrcmaotyh06" path="res://scenes/peach_jump.tscn" id="7_ng40l"]
+[ext_resource type="PackedScene" uid="uid://ddl7v4mrtvfrw" path="res://scenes/pear_speed.tscn" id="8_04hp8"]
 [ext_resource type="FontFile" uid="uid://tmf1vi52lfs3" path="res://assets/fonts/PixelOperator8.ttf" id="10_g1ha7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p57ef"]
@@ -372,6 +375,20 @@ theme_override_fonts/font = ExtResource("10_g1ha7")
 theme_override_font_sizes/font_size = 8
 text = "These jumps are hard"
 metadata/_edit_use_anchors_ = true
+
+[node name="Powerups" type="Node" parent="."]
+
+[node name="grape_slow" parent="Powerups" instance=ExtResource("6_sc6c1")]
+position = Vector2(1641, -79)
+
+[node name="peach_jump" parent="Powerups" instance=ExtResource("7_ng40l")]
+position = Vector2(2058, -126)
+
+[node name="pear_speed" parent="Powerups" instance=ExtResource("8_04hp8")]
+position = Vector2(2680, -48)
+
+[node name="peach_jump2" parent="Powerups" instance=ExtResource("7_ng40l")]
+position = Vector2(2664, -204)
 
 [node name="next_level" parent="." instance=ExtResource("7_0fd8o")]
 position = Vector2(2761, -296)

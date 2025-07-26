@@ -5,23 +5,18 @@ var SPEED = 130
 var JUMP_VELOCITY = -300
 
 
-
-
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer = $jump_sound
-
-@onready var jump_timer: Timer = $jump_timer
-@onready var speed_timer: Timer = $speed_timer
-@onready var slow_timer: Timer = $slow_timer
-
-
-
 
 
 func _ready() -> void:
 	for peach in get_tree().get_nodes_in_group("peaches_group"):
 		peach.connect("jump_boost", Callable(self, "_jump_boost"))
-	
+	for pear in get_tree().get_nodes_in_group("pears_group"):
+		pear.connect("speed_boost", Callable(self, "_speed_boost"))
+	for grape in get_tree().get_nodes_in_group("grapes_group"):
+		grape.connect("slow_boost", Callable(self, "_slow_boost"))
+
 
 #func _process(delta: float) -> void:
 
@@ -86,4 +81,5 @@ func _slow_boost():
 	await get_tree().create_timer(5.0).timeout # Wait for 2 seconds
 	print("Delay finished!")
 	SPEED = 130
+	
 	

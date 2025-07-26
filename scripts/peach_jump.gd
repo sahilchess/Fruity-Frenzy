@@ -9,9 +9,8 @@ extends Area2D
 # slowness is 50
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-signal slowness
+
 signal jump_boost
-signal speed_boost
 
 
 func _ready() -> void:

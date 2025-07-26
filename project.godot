@@ -23,7 +23,6 @@ buses/default_bus_layout="res://assets/default_bus_layout.tres"
 
 Music="*res://scenes/music.tscn"
 ScoreCounter="*res://scripts/score_counter.gd"
-PlayerStats="*res://scripts/PlayerStats.gd"
 
 [editor_plugins]
 
