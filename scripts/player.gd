@@ -18,10 +18,14 @@ var JUMP_VELOCITY = -300
 
 
 
-func _ready():
-	connect("jump_boost", Callable(self, "_jump_boost"))
+func _ready() -> void:
+	for peach in peaches():
+		peach.connect("jump_boost", Callable(self, "_jump_boost"))
+	
 
+#func _process(delta: float) -> void:
 
+	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -62,6 +66,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 func _jump_boost():
+#	if has_connections("jump_boost"):
 	JUMP_VELOCITY = -500
 	print("Starting delay...")
 	await get_tree().create_timer(5.0).timeout # Wait for 2 seconds
