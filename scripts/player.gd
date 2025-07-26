@@ -19,7 +19,7 @@ var JUMP_VELOCITY = -300
 
 
 func _ready() -> void:
-	for peach in peaches():
+	for peach in get_tree().get_nodes_in_group("peaches_group"):
 		peach.connect("jump_boost", Callable(self, "_jump_boost"))
 	
 

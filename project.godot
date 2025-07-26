@@ -29,10 +29,6 @@ PlayerStats="*res://scripts/PlayerStats.gd"
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
-[global_group]
-
-peaches_groups=""
-
 [input]
 
 jump={

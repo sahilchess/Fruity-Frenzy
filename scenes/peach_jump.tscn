@@ -156,14 +156,15 @@ _data = {
 &"pickup": SubResource("Animation_k6his")
 }
 
-[node name="peach_jump" type="Area2D" groups=["peaches"]]
+[node name="peach_jump" type="Area2D" groups=["peaches_group"]]
 collision_mask = 2
 script = ExtResource("1_k6his")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_il65w")
-animation = &"ice"
+animation = &"grass"
+autoplay = "grass"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0.5)

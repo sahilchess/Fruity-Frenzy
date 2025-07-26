@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://c4n61j3ikcwrm"]
+[gd_scene load_steps=20 format=4 uid="uid://c4n61j3ikcwrm"]
 
 [ext_resource type="Texture2D" uid="uid://jasqxcrfkh21" path="res://assets/sprites/world_tileset.png" id="2_sd18g"]
 [ext_resource type="PackedScene" uid="uid://kgtfnjuu4ifo" path="res://scenes/next_level.tscn" id="3_vm7no"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cr3xyxahg5oh4" path="res://scenes/coin.tscn" id="6_5orea"]
 [ext_resource type="PackedScene" uid="uid://cugoq60n2g0xa" path="res://scenes/platform_sand.tscn" id="7_0ourt"]
 [ext_resource type="PackedScene" uid="uid://b41487pho7g45" path="res://scenes/green_slime.tscn" id="8_w200a"]
+[ext_resource type="PackedScene" uid="uid://dvrcmaotyh06" path="res://scenes/peach_jump.tscn" id="9_at1ld"]
 [ext_resource type="FontFile" uid="uid://tmf1vi52lfs3" path="res://assets/fonts/PixelOperator8.ttf" id="9_uo0vl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p57ef"]
@@ -424,3 +425,6 @@ theme_override_fonts/font = ExtResource("9_uo0vl")
 theme_override_font_sizes/font_size = 8
 text = "Don't fall into the quicksand...."
 metadata/_edit_use_anchors_ = true
+
+[node name="peach_jump" parent="." instance=ExtResource("9_at1ld")]
+position = Vector2(353, -64)
