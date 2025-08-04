@@ -3,7 +3,6 @@
 **Name of Game:** Fruity Frenzy  
 **Type of Game:** Platformer  
 **Itch.io Link** [Click Here](https://sahilchess.itch.io/fruity-frenzy)
-
 **One-liner:** Dash through vibrant fruit lands collecting coins and dodging mischievous slimes to save the orchard!
 
 ---
