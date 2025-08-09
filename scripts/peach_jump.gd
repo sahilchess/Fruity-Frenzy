@@ -20,12 +20,11 @@ func _ready() -> void:
 	if lvl_num == 1:
 		animated_sprite_2d.play("grass")
 	if lvl_num == 2:
-		animated_sprite_2d.play("sand")
+		animated_sprite_2d.play("sand")	
 	if lvl_num == 3:
 		animated_sprite_2d.play("gold")
 	if lvl_num == 4:
-		animated_sprite_2d.play("ice")
-		
+		animated_sprite_2d.play("ice")			
 				
 func _on_body_entered(body: Node2D) -> void:
 	emit_signal("jump_boost")

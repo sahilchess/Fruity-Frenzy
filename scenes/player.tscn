@@ -1,6 +1,6 @@
 [gd_scene load_steps=36 format=3 uid="uid://bgmim7m54t7iu"]
 
-[ext_resource type="Texture2D" uid="uid://bbuovss1k4koe" path="res://assets/sprites/knight.png" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://cktwdm4ov1lio" path="res://assets/sprites/knight.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://rwjmukp0bd25" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="AudioStream" uid="uid://dggk3xavdgbl5" path="res://assets/sounds/jump.wav" id="3_qhqgy"]
 
@@ -257,9 +257,9 @@ script = ExtResource("1_g2els")
 z_index = 5
 position = Vector2(1, -12)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
-animation = &"death"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.409244
+frame_progress = 0.727419
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
